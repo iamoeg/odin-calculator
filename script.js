@@ -19,3 +19,9 @@ function divide(num1, num2) {
         return num1 / num2;
     }
 }
+
+// USER INPUT VARIABLES //
+
+let num1, num2;
+let operator;
+

@@ -28,17 +28,20 @@ let operator;
 // PERFORM CALCULATION //
 
 function operate(num1, num2, operator) {
+    num1 = Number(num1);
+    num2 = Number(num2);
+
     switch(operator){
-        case "+":
+        case "add":
             return add(num1, num2);
             break;
-        case "-":
+        case "substract":
             return substract(num1, num2);
             break;
-        case "*":
+        case "multiply":
             return multiply(num1, num2);
             break;
-        case "/":
+        case "divide":
             return divide(num1, num2);
             break;
         default:
@@ -66,3 +69,31 @@ const operation = document.querySelector(".operation");
 function displayUserInput(userInput) {
     operation.textContent = userInput;
 }
+
+// GET OPERATOR //
+
+const operatorKeys = document.querySelectorAll(".operator");
+
+operatorKeys.forEach(element => element.addEventListener("click", e => {
+    switch (e.target.id) {
+        case "add":
+        case "substract":
+        case "multiply":
+        case"divide":
+            num1 = userInput;
+            console.log({num1});
+            operator = e.target.id;
+            console.log({operator});
+            userInput = "";
+            displayUserInput(userInput);
+            break;
+        case ("operate"):
+            num2 = userInput;
+            console.log({num2});
+            userInput = "";
+            displayUserInput(userInput);
+            let result = operate(num1, num2, operator);
+            console.log({result});
+            break;
+    }
+}));

@@ -106,3 +106,20 @@ const resultArea = document.querySelector(".result");
 function displayResult(result) {
     resultArea.textContent = result;
 }
+
+// GET SIGNS //
+
+const signKeys = document.querySelectorAll(".sign");
+
+signKeys.forEach(element => element.addEventListener("click", e => {
+    switch (e.target.id) {
+        case "decimal":
+            userInput += ".";
+            displayUserInput(userInput);
+            break;
+        case "change-sign":
+            changeSign(userInput);
+            displayUserInput(userInput);
+            break;
+    }
+}));

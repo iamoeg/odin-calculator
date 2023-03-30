@@ -58,3 +58,11 @@ numberKeys.forEach(element => element.addEventListener("click", e => {
     userInput += e.target.id;
     displayUserInput(userInput);
 }));
+
+// Display user input //
+
+const operation = document.querySelector(".operation");
+
+function displayUserInput(userInput) {
+    operation.textContent = userInput;
+}

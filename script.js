@@ -118,7 +118,7 @@ signKeys.forEach(element => element.addEventListener("click", e => {
             displayUserInput(userInput);
             break;
         case "change-sign":
-            changeSign(userInput);
+            userInput *= -1;
             displayUserInput(userInput);
             break;
     }

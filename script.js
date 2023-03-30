@@ -45,3 +45,16 @@ function operate(num1, num2, operator) {
             return "Error: Missing user input"
     }
 }
+
+// GET AND DISPLAY USER INPUT //
+
+// Get user input //
+
+let userInput = "";
+
+const numberKeys = document.querySelectorAll(".number");
+
+numberKeys.forEach(element => element.addEventListener("click", e => {
+    userInput += e.target.id;
+    displayUserInput(userInput);
+}));

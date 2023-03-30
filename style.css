@@ -13,3 +13,51 @@ html {
 }
 
 /* MAIN STYLING */
+
+/* Header styling */
+
+h1 {
+    text-align: center;
+    padding: 24px;
+    font-size: 48px;
+    font-weight: 800;
+}
+
+/* Main calculator container styling */
+
+.calculator {
+    height: min(80vh, 80vw);
+    width: min(80vw, 80vh);
+    margin: auto;
+    padding: 24px;
+    border: 1px solid black;
+}
+
+/* Display styling */
+
+.display {
+    padding: 24px;
+    border: 0.5px solid grey;
+}
+
+.operation {
+    color: grey;
+    font-size: 12px;
+    font-weight: 600;
+    min-height: 18px;
+    border: 0.25px solid; /* To be removed */
+}
+
+.result {
+    color: black;
+    font-size: 18px;
+    min-height: 24px;
+    border: 0.25px solid; /* To be removed */
+}
+
+/* Buttons styling */
+
+button {
+    font-size: 18px;
+    padding: 12px;
+}

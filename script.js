@@ -81,19 +81,28 @@ operatorKeys.forEach(element => element.addEventListener("click", e => {
         case "multiply":
         case"divide":
             num1 = userInput;
-            console.log({num1});
+            console.log({num1}); // To be removed
             operator = e.target.id;
-            console.log({operator});
+            console.log({operator}); // To be removed
             userInput = "";
             displayUserInput(userInput);
             break;
         case ("operate"):
             num2 = userInput;
-            console.log({num2});
+            console.log({num2}); // To be removed
             userInput = "";
             displayUserInput(userInput);
             let result = operate(num1, num2, operator);
-            console.log({result});
+            console.log({result}); // To be removed
+            displayResult(result);
             break;
     }
 }));
+
+// DISPLAY RESULT //
+
+const resultArea = document.querySelector(".result");
+
+function displayResult(result) {
+    resultArea.textContent = result;
+}

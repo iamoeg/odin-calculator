@@ -24,6 +24,7 @@ function divide(num1, num2) {
 
 let num1, num2;
 let operator;
+let result;
 
 // PERFORM CALCULATION //
 
@@ -92,7 +93,7 @@ operatorKeys.forEach(element => element.addEventListener("click", e => {
             console.log({num2}); // To be removed
             userInput = "";
             displayUserInput(userInput);
-            let result = operate(num1, num2, operator);
+            result = operate(num1, num2, operator);
             console.log({result}); // To be removed
             displayResult(result);
             break;
@@ -107,7 +108,7 @@ function displayResult(result) {
     resultArea.textContent = result;
 }
 
-// GET SIGNS //
+// GET SIGN INPUT //
 
 const signKeys = document.querySelectorAll(".sign");
 
@@ -121,5 +122,31 @@ signKeys.forEach(element => element.addEventListener("click", e => {
             userInput *= -1;
             displayUserInput(userInput);
             break;
+    }
+}));
+
+// GET FUNCTION INPUT //
+
+const functionKeys = document.querySelectorAll(".function");
+
+functionKeys.forEach(element => element.addEventListener("click", e => {
+    switch (e.target.id) {
+        case "delete":
+            userInput = userInput.slice(0, -1);
+            displayUserInput(userInput);
+            break;
+        case "clear":
+            userInput = "";
+            num1 = "";
+            num2 = "";
+            operator = "";
+            result = "";
+
+            displayResult(result);
+            displayUserInput(userInput);
+            break;
+        case "answer":
+            userInput = result;
+            displayUserInput(userInput);
     }
 }));

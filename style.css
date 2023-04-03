@@ -40,7 +40,7 @@ h1 {
     border: 0.5px solid grey;
 }
 
-.operation {
+.operation-area {
     color: grey;
     font-size: 12px;
     font-weight: 600;
@@ -48,7 +48,7 @@ h1 {
     border: 0.25px solid; /* To be removed */
 }
 
-.result {
+.result-area {
     color: black;
     font-size: 18px;
     min-height: 24px;

@@ -1,3 +1,9 @@
+// GLOBAL VARIABLES //
+
+let userInput = "";
+let num1, num2, operator;
+let workingResult, finalResult;
+
 // BASIC CALCULATION FUNCTIONS //
 
 function add(num1, num2) {
@@ -19,12 +25,6 @@ function divide(num1, num2) {
         return num1 / num2;
     }
 }
-
-// USER INPUT VARIABLES //
-
-let num1, num2;
-let operator;
-let result;
 
 // PERFORM CALCULATION //
 
@@ -50,11 +50,7 @@ function operate(num1, num2, operator) {
     }
 }
 
-// GET AND DISPLAY USER INPUT //
-
-// Get user input //
-
-let userInput = "";
+// GET USER INPUT //
 
 const numberKeys = document.querySelectorAll(".number");
 
@@ -63,12 +59,12 @@ numberKeys.forEach(element => element.addEventListener("click", e => {
     displayUserInput(userInput);
 }));
 
-// Display user input //
+// DISPLAY USER INPUT //
 
-const operation = document.querySelector(".operation");
+const operationArea = document.querySelector(".operation-area");
 
 function displayUserInput(userInput) {
-    operation.textContent = userInput;
+    operationArea.textContent = userInput;
 }
 
 // GET OPERATOR //
@@ -81,28 +77,18 @@ operatorKeys.forEach(element => element.addEventListener("click", e => {
         case "substract":
         case "multiply":
         case"divide":
-            num1 = userInput;
-            console.log({num1}); // To be removed
+            setWorkingValues();
             operator = e.target.id;
-            console.log({operator}); // To be removed
-            userInput = "";
-            displayUserInput(userInput);
             break;
         case ("operate"):
-            num2 = userInput;
-            console.log({num2}); // To be removed
-            userInput = "";
-            displayUserInput(userInput);
-            result = operate(num1, num2, operator);
-            console.log({result}); // To be removed
-            displayResult(result);
+            performOperation();
             break;
     }
 }));
 
 // DISPLAY RESULT //
 
-const resultArea = document.querySelector(".result");
+const resultArea = document.querySelector(".result-area");
 
 function displayResult(result) {
     resultArea.textContent = result;
@@ -132,21 +118,53 @@ const functionKeys = document.querySelectorAll(".function");
 functionKeys.forEach(element => element.addEventListener("click", e => {
     switch (e.target.id) {
         case "delete":
-            userInput = userInput.slice(0, -1);
-            displayUserInput(userInput);
+            deleteLastChar();
             break;
         case "clear":
-            userInput = "";
-            num1 = "";
-            num2 = "";
-            operator = "";
-            result = "";
-
-            displayResult(result);
-            displayUserInput(userInput);
+            clearAll();
             break;
-        case "answer":
-            userInput = result;
-            displayUserInput(userInput);
+        case "last-result":
+            inputLastResult();
+            break;
     }
 }));
+
+// UTILITY FUNCTIONS //
+
+function deleteLastChar() {
+    userInput = userInput.slice(0, -1);
+    displayUserInput(userInput);
+};
+
+function clearAll() {
+    userInput = "";
+    num1 = "";
+    num2 = "";
+    operator = "";
+    result = "";
+
+    displayResult(result);
+    displayUserInput(userInput);
+}
+
+function inputLastResult() {
+    userInput = finalResult;
+    displayUserInput(userInput);
+}
+
+function performOperation() {
+    num2 = userInput;
+    workingResult = operate(num1, num2, operator);
+    displayResult(workingResult);
+    num1 = null;
+    num2 = null;
+    operator = null;
+    userInput = "";
+    displayUserInput(userInput);
+}
+
+function setWorkingValues() {
+        num1 = userInput;
+        userInput = "";
+        displayUserInput(userInput);
+}

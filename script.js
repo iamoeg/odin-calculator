@@ -1,8 +1,12 @@
 // GLOBAL VARIABLES //
 
 let userInput = "";
-let num1, num2, operator;
-let workingResult, finalResult;
+let num1 = null;
+let num2 = null;
+let inputOperator = null;
+let workingOperator = null;
+let workingResult = null;
+let finalResult = null;
 
 // BASIC CALCULATION FUNCTIONS //
 
@@ -77,8 +81,8 @@ operatorKeys.forEach(element => element.addEventListener("click", e => {
         case "substract":
         case "multiply":
         case"divide":
+            inputOperator = e.target.id;
             setWorkingValues();
-            operator = e.target.id;
             break;
         case ("operate"):
             performOperation();
@@ -138,33 +142,46 @@ function deleteLastChar() {
 
 function clearAll() {
     userInput = "";
-    num1 = "";
-    num2 = "";
-    operator = "";
-    result = "";
+    num1 = null;
+    num2 = null;
+    inputOperator = null;
+    workingOperator = null;
+    workingResult = null;
+    finalResult = null;
 
-    displayResult(result);
+    displayResult(finalResult);
     displayUserInput(userInput);
-}
+};
 
 function inputLastResult() {
     userInput = finalResult;
     displayUserInput(userInput);
-}
+};
 
 function performOperation() {
     num2 = userInput;
-    finalResult = operate(num1, num2, operator);
+    finalResult = operate(num1, num2, inputOperator);
     displayResult(finalResult);
     num1 = null;
     num2 = null;
-    operator = null;
+    workingOperator = null;
     userInput = "";
     displayUserInput(userInput);
-}
+};
 
 function setWorkingValues() {
+    if (workingOperator == null) {
         num1 = userInput;
+        workingOperator = inputOperator;
         userInput = "";
         displayUserInput(userInput);
-}
+    } else {
+        num2 = userInput;
+        workingResult = operate(num1, num2, workingOperator);
+        displayResult(workingResult);
+        num1 = workingResult;
+        workingOperator = inputOperator;
+        userInput = "";
+        displayUserInput(userInput);
+    }
+};

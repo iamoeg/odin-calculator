@@ -154,8 +154,8 @@ function inputLastResult() {
 
 function performOperation() {
     num2 = userInput;
-    workingResult = operate(num1, num2, operator);
-    displayResult(workingResult);
+    finalResult = operate(num1, num2, operator);
+    displayResult(finalResult);
     num1 = null;
     num2 = null;
     operator = null;

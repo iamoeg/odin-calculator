@@ -95,7 +95,7 @@ operatorKeys.forEach(element => element.addEventListener("click", e => {
 const resultArea = document.querySelector(".result-area");
 
 function displayResult(result) {
-    resultArea.textContent = result;
+    resultArea.textContent = Math.round(result * 10000) / 10000;
 }
 
 // GET SIGN INPUT //

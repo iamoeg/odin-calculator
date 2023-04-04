@@ -1,7 +1,8 @@
-/* CSS RESETS */
+/* RESETS */
 
 html {
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 *,
@@ -10,6 +11,24 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
+}
+
+/* IMPORTS */
+
+/* Remote fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
+
+/* Local fonts */
+
+@font-face {
+    font-family: "Heorot";
+    src: url("assets/fonts/heorot/Heorot.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Heorot Shadow";
+    src: url("assets/fonts/heorot/HeorotShadow.ttf") format("truetype");
 }
 
 /* MAIN STYLING */
@@ -21,43 +40,93 @@ h1 {
     padding: 24px;
     font-size: 48px;
     font-weight: 800;
+    font-family: Heorot;
 }
 
-/* Main calculator container styling */
+/* Main container styling */
 
 .calculator {
-    height: min(80vh, 80vw);
     width: min(80vw, 80vh);
     margin: auto;
     padding: 24px;
-    border: 1px solid black;
+    border: 10px solid black;
+    border-radius: 1rem;
+    background-color: #000000;
 }
 
 /* Display styling */
 
 .display {
     padding: 24px;
-    border: 0.5px solid grey;
+    border: 5px solid #3D3D3D;
+    margin-bottom: 24px;
+    border-radius: 1rem;
+    background-color: #ffffff;
 }
 
 .operation-area {
-    color: grey;
-    font-size: 12px;
+    color: #3D3D3D;
+    font-size: 24px;
     font-weight: 600;
-    min-height: 18px;
-    border: 0.25px solid; /* To be removed */
+    min-height: 36px;
+    font-family: "Martian Mono", monospace;
 }
 
 .result-area {
-    color: black;
-    font-size: 18px;
-    min-height: 24px;
-    border: 0.25px solid; /* To be removed */
+    color: #000000;
+    font-size: 36px;
+    min-height: 48px;
+    text-align: right;
+    font-family: "Martian Mono", monospace;
+}
+
+/* Keypad styling */
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    padding: 24px;
+    border: 5px solid #3D3D3D;
+    border-radius: 1rem;
+    background-color: #adadad;
 }
 
 /* Buttons styling */
 
 button {
-    font-size: 18px;
+    font-size: 24px;
     padding: 12px;
+    border-radius: 1rem;
+    background-color: #ffffff;
+    border: 0;
+    font-family: "Martian Mono", monospace;
+}
+
+#last-result,
+#operate {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+#add,
+#substract,
+#multiply,
+#divide {
+    background-color: #262A56;
+    color: #ffffff;
+}
+
+#clear {
+    background-color: #B8621B;
+}
+
+#delete {
+    background-color: #E3CCAE;
+}
+
+.operator,
+.sign,
+.function {
+    font-weight: 600;
 }

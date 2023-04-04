@@ -105,7 +105,9 @@ const signKeys = document.querySelectorAll(".sign");
 signKeys.forEach(element => element.addEventListener("click", e => {
     switch (e.target.id) {
         case "decimal":
-            userInput += ".";
+            if (!userInput.includes(".")) {
+                userInput += ".";
+            }
             displayUserInput(userInput);
             break;
         case "change-sign":

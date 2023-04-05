@@ -187,3 +187,60 @@ function setWorkingValues() {
         displayUserInput(userInput);
     }
 };
+
+// SUPPORT KEYBOARD INPUT //
+
+window.addEventListener("keydown", e => {
+    switch (e.key) {
+        case "0":
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
+            userInput += e.key;
+            displayUserInput(userInput);
+            break;
+        case "+":
+            inputOperator = "add";
+            setWorkingValues();
+            break;
+        case "-":
+            inputOperator = "substract";
+            setWorkingValues();
+            break;
+        case "*":
+            inputOperator = "multiply";
+            setWorkingValues();
+            break;
+        case "/":
+            inputOperator = "divide";
+            setWorkingValues();
+            break;
+        case "Enter":
+            performOperation();
+            break;
+        case "a":
+            inputLastResult();
+            break;
+        case "c":
+            clearAll();
+            break;
+        case "Backspace":
+            deleteLastChar();
+            break;
+        case "s":
+            userInput *= -1;
+            displayUserInput(userInput);
+        case ".":
+            if (!userInput.includes(".")) {
+                userInput += ".";
+            }
+            displayUserInput(userInput);
+            break;
+    }
+});

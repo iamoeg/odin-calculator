@@ -1,6 +1,50 @@
-# Read Me: Odin's Calculator
+# Read Me: Odin's Calculator Project
 
-## Assignment
+## Introduction
+
+This project was realised as part of [the Odin Project's "Foundations" course](https://www.theodinproject.com/lessons/foundations-calculator). The entire assignment at the time of writing is available below.
+
+The project aims to create a simple calculator as a way to practice JavaScript, HTML, and CSS development. The resulting code is a work in progress that I plan to improve as I learn new concepts and techniques. Features, limitations, and notes, etc., are documented below.
+
+## Features
+
+- Perform basic calculations: add, substract, multiply, divide.
+- Input decimal numbers.
+- Save and use last result (`ANS`).
+- Switch the sign (positive vs. negative) of number input (`±`).
+- Delete input (`DEL`).
+- Clear all values (`AC`).
+- Simple GUI.
+- Supporty keyboard input:
+    - `c` to clear all values (`AC`).
+    - `a` to use the last result (`ANS`).
+    - `s` to switch the sign of number input (`±`).
+    - `backspace` to delete input (`DEL`).
+    - `enter` to perform calculation (`=`).
+    - numbers to input... numbers.
+
+## Limitations
+
+- Doesn't support operation precedence. It performs stringed operations sequentially, meaning that `12 + 7 - 5 * 3 =` yields `42`, which is not mathematically correct.
+- Only displays number inputs, not the entire operation. This will be fixed when operation precedence is implemented.
+- Doesn't support parenthesis.
+- Doesn't support more advanced math operations.
+- Doesn't support saving values to memory.
+
+## Bugs
+
+No known bugs for the moment.
+
+However, the code could be improved in a few ways:
+
+- There is some redundancy that could probably fixed by refactoring some functionality into separate functions that are later called as needed.
+- Some features could have a better implementation.
+- Some parts of the code could be better organized, or just lack clear comments.
+- The GUI could be better (e.g. a more harmonious color palette, and a dark mode).
+
+***
+
+## The Odin Project: Calculator Project Assignment
 
 Don’t forget to commit early & often! You can [reference the Commit Message lesson here!](https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/commit-messages)
 
